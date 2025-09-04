@@ -13,6 +13,24 @@ public class DeliveryEmployeeRequest {
     private double salary;
     private String bankAccount;
     private String nationalInsuranceNumber;
+    private String username;
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(final String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(final String username) {
+        this.username = username;
+    }
 
     public String getfName() {
         return fName;
@@ -62,6 +80,7 @@ public class DeliveryEmployeeRequest {
         this.nationalInsuranceNumber = nationalInsuranceNo;
     }
 
+    @SuppressWarnings("checkstyle:ParameterNumber")
     @JsonCreator
     public DeliveryEmployeeRequest(
             @JsonProperty("fName") final String fName,
@@ -70,12 +89,18 @@ public class DeliveryEmployeeRequest {
             @JsonProperty("salary") final double salary,
             @JsonProperty("bankAccount") final String bankAccount,
             @JsonProperty("nationalInsuranceNumber")
-            final String nationalInsuranceNumber) {
+            final String nationalInsuranceNumber,
+            @JsonProperty("username") final String username,
+            @JsonProperty("password") final String password
+
+    ) {
         this.fName = fName;
         this.mName = mName;
         this.lName = lName;
         this.salary = salary;
         this.bankAccount = bankAccount;
         this.nationalInsuranceNumber = nationalInsuranceNumber;
+        this.username = username;
+        this.password = password;
     }
 }
