@@ -16,6 +16,11 @@ import java.sql.SQLException;
 public class DeliveryEmployeeController {
     DeliveryEmployeeService deliveryEmployeeService;
 
+    public DeliveryEmployeeController(
+            final DeliveryEmployeeService deliveryEmployeeService) {
+        this.deliveryEmployeeService = deliveryEmployeeService;
+    }
+
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response createDeliveryEmployee(
