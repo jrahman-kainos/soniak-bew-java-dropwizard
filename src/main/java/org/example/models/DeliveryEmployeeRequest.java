@@ -1,5 +1,8 @@
 package org.example.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Represents a request to create a delivery employee in the system.
  */
@@ -41,9 +44,12 @@ public class DeliveryEmployeeRequest {
         this.nationalInsuranceNumber = nationalInsuranceNo;
     }
 
-    public DeliveryEmployeeRequest(final String name, final double salary,
-                            final String bankAccount,
-                            final String nationalInsuranceNumber) {
+    @JsonCreator
+    public DeliveryEmployeeRequest(
+            @JsonProperty("name") final String name,
+            @JsonProperty("salary") final double salary,
+            @JsonProperty("bankAccount") final String bankAccount,
+            @JsonProperty("nationalInsuranceNumber") final String nationalInsuranceNumber) {
         this.name = name;
         this.salary = salary;
         this.bankAccount = bankAccount;
