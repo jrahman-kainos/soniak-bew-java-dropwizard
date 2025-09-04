@@ -32,10 +32,8 @@ public class DeliveryEmployeeController {
                     .entity(deliveryEmployeeService.createDeliveryEmployee(
                             deliveryEmployeeRequest))
                     .build();
-        } catch (SQLException e) {
+        } catch (SQLException | FailedToCreateException e) {
             return Response.serverError().build();
-        } catch (FailedToCreateException e) {
-            throw new RuntimeException(e);
         }
     }
 }

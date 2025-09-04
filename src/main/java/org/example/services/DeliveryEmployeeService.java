@@ -2,6 +2,7 @@ package org.example.services;
 
 import org.example.Exceptions.Entity;
 import org.example.Exceptions.FailedToCreateException;
+import org.example.Exceptions.NINLengthNotValidException;
 import org.example.daos.DeliveryEmployeeDao;
 import org.example.models.DeliveryEmployeeRequest;
 
@@ -31,6 +32,12 @@ public class DeliveryEmployeeService {
             System.out.println("HR password wrong!");
             return -1;
         }
+
+        int lenthOfNIN = deliveryEmployeeRequest.getNationalInsuranceNumber().length();
+        if (lenthOfNIN != 9 && lenthOfNIN != 15 && lenthOfNIN != 18) {
+            throw new NINLengthNotValidException();
+        }
+
         int id = deliveryEmployeeDao.createDeliveryEmployee(
                 deliveryEmployeeRequest);
         if (id == -1) {
