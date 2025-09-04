@@ -7,17 +7,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Represents a request to create a delivery employee in the system.
  */
 public class DeliveryEmployeeRequest {
-    private String name;
+    private String fName;
+    private String mName;
+    private String lName;
     private double salary;
     private String bankAccount;
     private String nationalInsuranceNumber;
 
-    public String getName() {
-        return name;
+    public String getfName() {
+        return fName;
     }
 
-    public void setName(final String name) {
-        this.name = name;
+    public void setfName(final String fName) {
+        this.fName = fName;
+    }
+
+    public String getmName() {
+        return mName;
+    }
+
+    public void setmName(final String mName) {
+        this.mName = mName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public void setlName(final String lName) {
+        this.lName = lName;
     }
 
     public double getSalary() {
@@ -46,12 +64,16 @@ public class DeliveryEmployeeRequest {
 
     @JsonCreator
     public DeliveryEmployeeRequest(
-            @JsonProperty("name") final String name,
+            @JsonProperty("fName") final String fName,
+            @JsonProperty("mName") final String mName,
+            @JsonProperty("lName") final String lName,
             @JsonProperty("salary") final double salary,
             @JsonProperty("bankAccount") final String bankAccount,
             @JsonProperty("nationalInsuranceNumber")
             final String nationalInsuranceNumber) {
-        this.name = name;
+        this.fName = fName;
+        this.mName = mName;
+        this.lName = lName;
         this.salary = salary;
         this.bankAccount = bankAccount;
         this.nationalInsuranceNumber = nationalInsuranceNumber;

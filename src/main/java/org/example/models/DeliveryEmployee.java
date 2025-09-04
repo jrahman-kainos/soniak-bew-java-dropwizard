@@ -5,7 +5,9 @@ package org.example.models;
  */
 public class DeliveryEmployee {
     private int id;
-    private String name;
+    private String fName;
+    private String mName;
+    private String lName;
     private double salary;
     private String bankAccount;
     private String nationalInsuranceNumber;
@@ -18,12 +20,29 @@ public class DeliveryEmployee {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+
+    public String getfName() {
+        return fName;
     }
 
-    public void setName(final String name) {
-        this.name = name;
+    public void setfName(final String fName) {
+        this.fName = fName;
+    }
+
+    public String getmName() {
+        return mName;
+    }
+
+    public void setmName(final String mName) {
+        this.mName = mName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public void setlName(final String lName) {
+        this.lName = lName;
     }
 
     public double getSalary() {
@@ -52,12 +71,16 @@ public class DeliveryEmployee {
     }
 
     public DeliveryEmployee(final int id,
-                            final String name,
+                            final String fName,
+                            final String mName,
+                            final String lName,
                             final double salary,
                             final String bankAccount,
                             final String nationalInsuranceNumber) {
         this.id = id;
-        this.name = name;
+        this.fName = fName;
+        this.mName = mName;
+        this.lName = lName;
         this.salary = salary;
         this.bankAccount = bankAccount;
         this.nationalInsuranceNumber = nationalInsuranceNumber;
