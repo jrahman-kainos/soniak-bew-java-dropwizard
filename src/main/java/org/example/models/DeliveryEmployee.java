@@ -1,5 +1,8 @@
 package org.example.models;
 
+/**
+ * Represents a delivery employee in the system.
+ */
 public class DeliveryEmployee {
     private int id;
     private String name;
