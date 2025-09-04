@@ -1,17 +1,19 @@
 package org.example.services;
 
+import org.example.Exceptions.Entity;
+import org.example.Exceptions.FailedToCreateException;
 import org.example.daos.DeliveryEmployeeDao;
 import org.example.models.DeliveryEmployeeRequest;
 
-import javax.swing.text.html.parser.Entity;
+
 import java.sql.SQLException;
-import java.util.List;
 
 public class DeliveryEmployeeService {
 
     DeliveryEmployeeDao deliveryEmployeeDao;
 
-    public DeliveryEmployeeService(final DeliveryEmployeeDao deliveryEmployeeDao) {
+    public DeliveryEmployeeService(
+            final DeliveryEmployeeDao deliveryEmployeeDao) {
         this.deliveryEmployeeDao = deliveryEmployeeDao;
     }
 
@@ -19,15 +21,12 @@ public class DeliveryEmployeeService {
             final DeliveryEmployeeRequest deliveryEmployeeRequest)
             throws FailedToCreateException,
             SQLException {
-        int id = deliveryEmployeeDao.createDeliveryEmployee(deliveryEmployeeRequest);
+        int id = deliveryEmployeeDao.createDeliveryEmployee(
+                deliveryEmployeeRequest);
         if (id == -1) {
-            throw new FailedToCreateException(Entity.DELIVERYEMPLOYEE);
+            throw new FailedToCreateException(Entity.DELIVERY_EMPLOYEE);
         }
         return id;
     }
 
-    public List<DeliveryEmployeeResponse> getAllDeliveryEmployees() throws SQLException {
-        return DeliveryEmployeeMapper.mapDeliveryEmployeeListToDeliveryEmployeeResponseList(
-                deliveryEmployeeDao.getAllDeliveryEmployees());
-    }
 }

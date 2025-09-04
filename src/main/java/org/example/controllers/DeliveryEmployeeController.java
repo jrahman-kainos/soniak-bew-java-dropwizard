@@ -1,6 +1,7 @@
 package org.example.controllers;
 
 import io.swagger.annotations.Api;
+import org.example.Exceptions.FailedToCreateException;
 import org.example.models.DeliveryEmployeeRequest;
 import org.example.services.DeliveryEmployeeService;
 
@@ -28,10 +29,13 @@ public class DeliveryEmployeeController {
         try {
             return Response
                     .status(Response.Status.CREATED)
-                    .entity(deliveryEmployeeService.createDeliveryEmployee(deliveryEmployeeRequest))
+                    .entity(deliveryEmployeeService.createDeliveryEmployee(
+                            deliveryEmployeeRequest))
                     .build();
         } catch (SQLException e) {
             return Response.serverError().build();
+        } catch (FailedToCreateException e) {
+            throw new RuntimeException(e);
         }
     }
 }
