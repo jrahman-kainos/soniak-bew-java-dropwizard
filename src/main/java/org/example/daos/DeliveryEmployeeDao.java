@@ -9,14 +9,27 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DeliveryEmployeeDao {
-    public int createDeliveryEmployee(final DeliveryEmployeeRequest deliveryEmployeeRequest) throws SQLException {
+    @SuppressWarnings("checkstyle:MagicNumber")
+    public int createDeliveryEmployee(
+            final DeliveryEmployeeRequest deliveryEmployeeRequest)
+            throws SQLException {
         try (Connection connection = DatabaseConnector.getConnection()) {
-            String insertStatement = "INSERT INTO `delivery_employee` (name, salary, bank_account_number, national_insurance_number) VALUES (?,?,?,?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(insertStatement, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, deliveryEmployeeRequest.getName());
-            preparedStatement.setDouble(2, deliveryEmployeeRequest.getSalary());
-            preparedStatement.setString(3, deliveryEmployeeRequest.getBankAccount());
-            preparedStatement.setString(4, deliveryEmployeeRequest.getNationalInsuranceNumber());
+
+            String insertStatement =
+                    "INSERT INTO `delivery_employee` "
+                    + "(name, salary, bank_account_number,"
+                    + " national_insurance_number) VALUES (?,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    insertStatement, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(
+                    1, deliveryEmployeeRequest.getName());
+            preparedStatement.setDouble(
+                    2, deliveryEmployeeRequest.getSalary());
+            preparedStatement.setString(
+                    3, deliveryEmployeeRequest.getBankAccount());
+            preparedStatement.setString(
+                    4, deliveryEmployeeRequest.
+                            getNationalInsuranceNumber());
 
             preparedStatement.executeUpdate();
 

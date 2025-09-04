@@ -49,7 +49,8 @@ public class DeliveryEmployeeRequest {
             @JsonProperty("name") final String name,
             @JsonProperty("salary") final double salary,
             @JsonProperty("bankAccount") final String bankAccount,
-            @JsonProperty("nationalInsuranceNumber") final String nationalInsuranceNumber) {
+            @JsonProperty("nationalInsuranceNumber")
+            final String nationalInsuranceNumber) {
         this.name = name;
         this.salary = salary;
         this.bankAccount = bankAccount;

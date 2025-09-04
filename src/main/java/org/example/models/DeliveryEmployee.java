@@ -46,11 +46,14 @@ public class DeliveryEmployee {
         return nationalInsuranceNumber;
     }
 
-    public void setNationalInsuranceNumber(final String nationalInsuranceNumber) {
+    public void setNationalInsuranceNumber(
+            final String nationalInsuranceNumber) {
         this.nationalInsuranceNumber = nationalInsuranceNumber;
     }
 
-    public DeliveryEmployee(final int id, final String name, final double salary,
+    public DeliveryEmployee(final int id,
+                            final String name,
+                            final double salary,
                             final String bankAccount,
                             final String nationalInsuranceNumber) {
         this.id = id;
