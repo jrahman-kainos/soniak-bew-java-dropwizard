@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DeliveryEmployeeDao {
-    public int createDeliverEmployee(final DeliveryEmployeeRequest deliveryEmployeeRequest) throws SQLException {
+    public int createDeliveryEmployee(final DeliveryEmployeeRequest deliveryEmployeeRequest) throws SQLException {
         try (Connection connection = DatabaseConnector.getConnection()) {
             String insertStatement = "INSERT INTO `delivery_employee` (name, salary, bank_account_number, national_insurance_number) VALUES (?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(insertStatement, Statement.RETURN_GENERATED_KEYS);
